@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import trustrail.api.entity.Business;
 import trustrail.api.entity.enums.BusinessStatus;
+import trustrail.api.entity.enums.BusinessType;
 import trustrail.api.repo.BusinessRepo;
 import trustrail.api.security.JwtService;
 import trustrail.api.dto.AuthResponse;
@@ -31,8 +32,19 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .phoneNumber(request.getPhoneNumber())
                 .rcNumber(request.getRcNumber())
+                .tin(request.getTin())  // ← ADD THIS
+                .address(request.getAddress())  // ← ADD THIS
+                .businessShortName(request.getBusinessShortName())  // ← ADD THIS
+                .businessType(BusinessType.valueOf(request.getBusinessType()))  // ← ADD THIS (convert String to enum)
+                .settlementAccountNumber(request.getSettlementAccountNumber())  // ← ADD THIS
+                .settlementBankCode(request.getSettlementBankCode())  // ← ADD THIS
+                .settlementAccountName(request.getSettlementAccountName())  // ← ADD THIS
+                .notificationPhoneNumber(request.getNotificationPhoneNumber())  // ← ADD THIS
+                .whatsappContactName(request.getWhatsappContactName())  // ← ADD THIS (optional)
+                .whatsappContactNumber(request.getWhatsappContactNumber())  // ← ADD THIS (optional)
                 .status(BusinessStatus.PENDING_VERIFICATION)
                 .build();
+
         businessRepository.save(business);
 
         return AuthResponse.builder()

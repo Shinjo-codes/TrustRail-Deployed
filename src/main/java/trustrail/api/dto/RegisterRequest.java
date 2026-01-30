@@ -1,36 +1,29 @@
 package trustrail.api.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import trustrail.api.entity.enums.BusinessStatus;
-import trustrail.api.entity.enums.BusinessType;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class RegisterRequest {
     private String businessName;
     private String email;
     private String password;
     private String phoneNumber;
-    private String businessType;
-    private String settlementAccountNumber;
-    private String settlementBankCode;
-    private String settlementAccountName;
+    private String businessType;  // Make sure this exists
+    private String settlementAccountNumber;  // Make sure this exists
+    private String settlementBankCode;  // Make sure this exists
+    private String settlementAccountName;  // Make sure this exists
     private String notificationEmail;
-    private String notificationPhoneNumber;
+    private String notificationPhoneNumber;  // Make sure this exists
     private String rcNumber;
-    private String tin;
-    private String address;
-    private String businessShortName;
+    private String tin;  // Make sure this exists
+    private String address;  // Make sure this exists
+    private String businessShortName;  // Make sure this exists
     private String whatsappContactName;
     private String whatsappContactNumber;
 }
-

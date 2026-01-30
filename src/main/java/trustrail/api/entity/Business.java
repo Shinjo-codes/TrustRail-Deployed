@@ -24,16 +24,16 @@ import java.util.Set;
 @Builder
 public class Business extends Base implements UserDetails {
 
-    //@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String businessName;
 
-    //@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String notificationEmail;
 
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String password; // Hashed
 
-    //@Column(nullable = false)
+    @Column(nullable = false)
     @Size(max = 15, message = "Phone number cannot exceed 15 characters")
     private String phoneNumber;
 
@@ -63,11 +63,11 @@ public class Business extends Base implements UserDetails {
     private Set<Mandate> mandates = new HashSet<>();
 
     private String notificationPhoneNumber;
-    //@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String rcNumber;
-    //@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String tin;
-    //@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String address;
 
     private String businessShortName;
